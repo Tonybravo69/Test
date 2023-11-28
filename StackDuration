@@ -1,0 +1,36 @@
+import time
+
+stack = []
+stack_total = []
+entered_time = []
+exit_time = []
+stack_time = []
+current_time = time.time()
+
+
+def add_car():
+  stack.append("Car" +   str(len(stack)+1))
+  entered_time.append(current_time)
+  print(f"{stack} entered the stack at {entered_time}")
+
+def delete_car():
+  del(stack[0])
+  exit_time.append(current_time)
+  print(f"Car {stack} exited the stack at {exit_time}")
+  #How to have delete_car function print "Car 1" instead of just "car"
+
+def calculate():
+  for i in range(len(exit_time)):
+    stack_time.append(exit_time[i] - entered_time[i])
+
+def pro_time():
+  stack_time.append(exit_time[0] - entered_time[0])
+  
+  #Timestamps for enter and exit are the same, so return is none.
+  #Add_car and Delete_car are necessary for calculate function.
+  
+add_car()
+
+delete_car()
+
+print(calculate())
